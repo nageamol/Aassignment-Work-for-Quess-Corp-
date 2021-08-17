@@ -1,4 +1,4 @@
-package com.amol.myapp.view.fragment.ViewModel
+package com.amol.myapp.view.fragment.viewModel
 
 import android.view.View
 import androidx.lifecycle.ViewModel

@@ -14,15 +14,15 @@ class DropDownArrayAdapter(ctx: Context,
                            list: List<Drop_Down_Options>) :
     ArrayAdapter<Drop_Down_Options>(ctx, 0, list) {
 
-    override fun getView(position: Int, recycledView: View?, parent: ViewGroup): View {
-        return this.createView(position, recycledView, parent)
+    override fun getView(position: Int, view: View?, parent: ViewGroup): View {
+        return this.createView(position, view, parent)
     }
 
-    override fun getDropDownView(position: Int, recycledView: View?, parent: ViewGroup): View {
-        return this.createView(position, recycledView, parent)
+    override fun getDropDownView(position: Int, view: View?, parent: ViewGroup): View {
+        return this.createView(position, view, parent)
     }
 
-    private fun createView(position: Int, recycledView: View?, parent: ViewGroup): View {
+    private fun createView(position: Int, view: View?, parent: ViewGroup): View {
 
         val dropdown = getItem(position)
 

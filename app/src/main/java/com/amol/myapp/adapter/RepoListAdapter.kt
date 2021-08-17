@@ -1,5 +1,9 @@
 package com.amol.myapp.adapter
 
+import android.graphics.Color
+import android.text.Spannable
+import android.text.SpannableStringBuilder
+import android.text.style.ForegroundColorSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,9 +25,9 @@ import com.amol.myapp.const.Constant.Companion.logo
 import com.amol.myapp.const.Constant.Companion.multiLine
 import com.amol.myapp.databinding.*
 import com.amol.myapp.dataclass.Form_fields
-import com.amol.myapp.view.activity.MainActivity
 import java.util.*
 import kotlin.collections.ArrayList
+
 
 class RepoListAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     var formFields = ArrayList<Form_fields>()
@@ -103,6 +107,7 @@ class RepoListAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         formFields.clear()
         notifyDataSetChanged()
     }
+
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
 
 
@@ -156,6 +161,7 @@ class RepoListAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             binding.thumbImageView.loadSvgOrOthers(data.text_ans)
             binding.tvTitle.text = data.label
 
+
         }
 
     }
@@ -164,6 +170,19 @@ class RepoListAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         var binding: RowFileBinding = binding
         fun bind(data: Form_fields) {
             binding.tvTitle.text = data.label
+            if (data.required == 1) {
+                val builder: SpannableStringBuilder = SpannableStringBuilder()
+
+                builder.append(binding.tvTitle.text)
+                val start: Int = builder.length
+                builder.append("*")
+                val end: Int = builder.length
+                builder.setSpan(
+                    ForegroundColorSpan(Color.RED), start, end,
+                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                )
+                binding.tvTitle.text = builder
+            }
         }
     }
 
@@ -172,6 +191,19 @@ class RepoListAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         fun bind(data: Form_fields) {
 
             binding.tvTitle.text = data.label
+            if (data.required == 1) {
+                val builder: SpannableStringBuilder = SpannableStringBuilder()
+
+                builder.append(binding.tvTitle.text)
+                val start: Int = builder.length
+                builder.append("*")
+                val end: Int = builder.length
+                builder.setSpan(
+                    ForegroundColorSpan(Color.RED), start, end,
+                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                )
+                binding.tvTitle.text = builder
+            }
         }
     }
 
@@ -185,6 +217,20 @@ class RepoListAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             )
             binding.tvTitle.text = data.label
 
+            if (data.required == 1) {
+                val builder: SpannableStringBuilder = SpannableStringBuilder()
+
+                builder.append(binding.tvTitle.text)
+                val start: Int = builder.length
+                builder.append("*")
+                val end: Int = builder.length
+                builder.setSpan(
+                    ForegroundColorSpan(Color.RED), start, end,
+                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                )
+                binding.tvTitle.text = builder
+            }
+
         }
     }
 
@@ -194,6 +240,19 @@ class RepoListAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         fun bind(data: Form_fields) {
 
             binding.tvTitle.text = data.label
+            if (data.required == 1) {
+                val builder: SpannableStringBuilder = SpannableStringBuilder()
+
+                builder.append(binding.tvTitle.text)
+                val start: Int = builder.length
+                builder.append("*")
+                val end: Int = builder.length
+                builder.setSpan(
+                    ForegroundColorSpan(Color.RED), start, end,
+                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                )
+                binding.tvTitle.text = builder
+            }
         }
     }
 
@@ -203,11 +262,24 @@ class RepoListAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         fun bind(data: Form_fields) {
 
             binding.tvTitle.text = data.label
+            if (data.required == 1) {
+                val builder: SpannableStringBuilder = SpannableStringBuilder()
+
+                builder.append(binding.tvTitle.text)
+                val start: Int = builder.length
+                builder.append("*")
+                val end: Int = builder.length
+                builder.setSpan(
+                    ForegroundColorSpan(Color.RED), start, end,
+                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                )
+                binding.tvTitle.text = builder
+            }
         }
     }
 }
 
-fun ImageView.loadSvgOrOthers(myUrl: String?) {
+fun AppCompatImageView.loadSvgOrOthers(myUrl: String?) {
     myUrl?.let {
         if (it.toLowerCase(Locale.ENGLISH).endsWith("svg")) {
             val imageLoader = ImageLoader.Builder(this.context)

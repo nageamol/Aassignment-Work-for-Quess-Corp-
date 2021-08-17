@@ -3,7 +3,7 @@
     <data>
         <variable
             name="viewModelData"
-            type="com.amol.myapp.view.fragment.ViewModel.MainViewModel" />
+            type="com.amol.myapp.view.fragment.viewModel.MainViewModel" />
     </data>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -22,8 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_margin="05dp"
-
+            android:layout_margin="@dimen/dp_5"
             />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
@@ -35,16 +34,16 @@
         android:layout_centerInParent="true"
         android:layout_height="wrap_content">
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="@dimen/dp_10"
             android:textAllCaps="true"
             android:textColor="@color/black"
-            android:textSize="15sp"
+            android:textSize="@dimen/dp_15"
             android:gravity="center"
-            android:text="Failed to load data..Please Try Again"
+            android:text="@string/failed_msg"
             android:textStyle="bold" />
 
         <Button
@@ -54,8 +53,8 @@
             android:layout_below="@+id/tvTitle"
             android:onClick="@{viewModelData::onClick}"
             android:layout_centerHorizontal="true"
-            android:paddingStart="15dp"
-            android:paddingEnd="15dp"
+            android:paddingStart="@dimen/dp_15"
+            android:paddingEnd="@dimen/dp_15"
             android:layout_height="wrap_content">
 
         </Button>
@@ -64,12 +63,12 @@
 
     <ProgressBar
         android:visibility="gone"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="@dimen/dp_5"
         android:id="@+id/progressBar"
         android:layout_centerInParent="true"
         android:layout_width="match_parent"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginRight="@dimen/dp_10"
+        android:layout_marginLeft="@dimen/dp_10"
         android:layout_height="wrap_content"
         android:indeterminateTintMode="src_in"
         android:indeterminateTint="@color/colorPrimary"

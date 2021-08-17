@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">MyWork</string>
+    <string name="select_file">Select File</string>
+    <string name="enter_details">Enter Details</string>
+    <string name="select_date">Select Date</string>
+    <string name="failed_msg">Failed to load data..Please Try Again</string>
 </resources>
