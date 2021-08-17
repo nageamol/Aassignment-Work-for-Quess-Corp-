@@ -1,5 +1,4 @@
 package com.amol.myapp.dataclass
-
 import com.google.gson.annotations.SerializedName
 
 /*
@@ -14,8 +13,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 For support, please feel free to contact me at https://www.linkedin.com/in/syedabsar */
 
 
-data class RepoOutputModel (
+data class Key_form_fields (
 
-	@SerializedName("status") val status : Boolean,
-	@SerializedName("form_data") val form_data : Form_data
+	@SerializedName("key") val key : Int,
+	@SerializedName("form_fields") val form_fields : ArrayList<Form_fields>
 )

@@ -14,8 +14,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 For support, please feel free to contact me at https://www.linkedin.com/in/syedabsar */
 
 
-data class RepoOutputModel (
+data class Form_data (
 
-	@SerializedName("status") val status : Boolean,
-	@SerializedName("form_data") val form_data : Form_data
+	@SerializedName("key_form_fields") val key_form_fields_form_fields : List<Key_form_fields>
 )

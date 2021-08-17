@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class RetrofitClient {
 
     companion object{
-        val BASE_URL : String = "http://www.json-generator.com/api/json/get/"
+        val BASE_URL : String = "https://heptagon.tech/"
 
 
       fun  getRetrofitClient() : Retrofit {
