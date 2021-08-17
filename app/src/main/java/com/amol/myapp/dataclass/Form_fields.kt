@@ -21,5 +21,6 @@ data class Form_fields (
 	@SerializedName("required") val required : Int,
 	@SerializedName("key") val key : String,
 	@SerializedName("field_type") val field_type : String,
-	val viewType : Int
+	@SerializedName("drop_down_options") val dropDownOptions: ArrayList<Drop_Down_Options>,
+	var viewType : Int
 )

@@ -1,5 +1,6 @@
 package com.amol.myapp.view.fragment.ViewModel
 
+import android.view.View
 import androidx.lifecycle.ViewModel
 import com.amol.myapp.network.AuthRepository
 
@@ -13,6 +14,7 @@ class MainViewModel : ViewModel() {
     lateinit var disposable: Disposable
      var authRepository: AuthRepository
      var repoList: MutableLiveData<RepoOutputModel>
+     lateinit var mainFragmentCallback : CallBack
      lateinit var callback : CallbackHandler
 
     init {
@@ -20,12 +22,16 @@ class MainViewModel : ViewModel() {
         authRepository = AuthRepository();
     }
 
-    fun getBookListObserver(): MutableLiveData<RepoOutputModel> {
+    fun getRepoListObserver(): MutableLiveData<RepoOutputModel> {
         return repoList
     }
 
     fun getRepoFromServer() {
         authRepository.getRepos().subscribe(getRepoObserverRx())
+    }
+
+    fun onClick(view : View){
+        mainFragmentCallback.onClick(view)
     }
 
     private fun getRepoObserverRx(): Observer<RepoOutputModel> {
@@ -53,5 +59,11 @@ class MainViewModel : ViewModel() {
 
     fun onDestroy() {
         disposable.dispose()
+    }
+
+    public interface CallBack{
+
+        fun onClick(view: View)
+
     }
 }

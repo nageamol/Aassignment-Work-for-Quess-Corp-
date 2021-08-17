@@ -8,6 +8,6 @@ import java.util.*
 
 interface ApiInterface {
 
-    @GET("hep-test.json")
+    @GET("hep-tesst.json")
     fun getRepo() : Observable<RepoOutputModel>
 }

@@ -1,21 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
+    <data>
+        <variable
+            name="viewModelData"
+            type="com.amol.myapp.view.fragment.ViewModel.MainViewModel" />
+    </data>
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".view.fragment.MainFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_margin="05dp"
+        android:layout_height="match_parent">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_margin="05dp"
 
-        />
-</androidx.constraintlayout.widget.ConstraintLayout>
+            />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/layoutError"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textAllCaps="true"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:text="Failed to load data..Please Try Again"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnRetry"
+            android:layout_width="wrap_content"
+            android:text="Retry"
+            android:layout_below="@+id/tvTitle"
+            android:onClick="@{viewModelData::onClick}"
+            android:layout_centerHorizontal="true"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:layout_height="wrap_content">
+
+        </Button>
+
+    </RelativeLayout>
+
+    <ProgressBar
+        android:visibility="gone"
+        android:layout_marginTop="5dp"
+        android:id="@+id/progressBar"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_height="wrap_content"
+        android:indeterminateTintMode="src_in"
+        android:indeterminateTint="@color/colorPrimary"
+        android:indeterminate="true" />
+</RelativeLayout>
 
 </layout>
